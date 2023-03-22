@@ -20,7 +20,7 @@
 
 <script>
     window.$docsify = {
-        name: '',
+        name: 'Unity Knowledge Base',
         repo: 'Danielxxf/UnityKnowledgeBase',
 
         auto2top: true,
@@ -89,26 +89,26 @@
                     );
                 })
             },
-            function (i) {
-                // 加载 Gitalk 元素
-                var e = Docsify.dom;
-                i.mounted(function (i) {
-                    var n = e.create("div");
-                    n.id = "gitalk-container";
-                    var t = e.getNode("#main");
-                    n.style = "width: " + t.clientWidth + "px; margin: 0 auto 20px;", e.appendTo(e.find(".content"), n)
-                }), i.doneEach(function (i) {
-                    for (var n = document.getElementById("gitalk-container"); n.hasChildNodes();) n.removeChild(n.firstChild);
-                })
-            },
-            function (hook, vm) {
-                hook.doneEach(function () {
-                    // remove gitalk-container
-                    document.getElementById('gitalk-container').innerHTML = "";
-                    // 渲染
-                    NewGitalk().render('gitalk-container');
-                })
-            }
+            // function (i) {
+            //     // 加载 Gitalk 元素
+            //     var e = Docsify.dom;
+            //     i.mounted(function (i) {
+            //         var n = e.create("div");
+            //         n.id = "gitalk-container";
+            //         var t = e.getNode("#main");
+            //         n.style = "width: " + t.clientWidth + "px; margin: 0 auto 20px;", e.appendTo(e.find(".content"), n)
+            //     }), i.doneEach(function (i) {
+            //         for (var n = document.getElementById("gitalk-container"); n.hasChildNodes();) n.removeChild(n.firstChild);
+            //     })
+            // },
+            // function (hook, vm) {
+            //     hook.doneEach(function () {
+            //         // remove gitalk-container
+            //         document.getElementById('gitalk-container').innerHTML = "";
+            //         // 渲染
+            //         NewGitalk().render('gitalk-container');
+            //     })
+            // }
         ],
     }
 </script>
@@ -127,7 +127,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js"></script>
 
-<script>
+<!-- <script>
 
     function NewGitalk() {
         // 除去param
@@ -147,7 +147,7 @@
             distractionFreeMode: false
         });
     }
-</script>
+</script> -->
 
 </body>
 </html>
