@@ -45,26 +45,26 @@
 
             // 支持本地化
             placeholder: {
-                '/zh-cn/': '搜索',
+                '/docs/': '搜索',
                 '/': 'Type to search'
             },
 
             // 支持本地化
             noData: {
-                '/zh-cn/': '找不到结果',
+                '/docs/': '找不到结果',
                 '/': 'No Results'
             },
 
             // 避免搜索索引冲突
             // 同一域下的多个网站之间
-            namespace: 'Software-Engineering-at-Google',
+            namespace: 'Unity-Knowledge-Base',
 
             // 使用不同的索引作为路径前缀（namespaces）
             // 注意：仅适用于 paths: 'auto' 模式
             //
             // 初始化索引时，我们从侧边栏查找第一个路径
             // 如果它与列表中的前缀匹配，我们将切换到相应的索引
-            pathNamespaces: ['/zh-cn'],
+            pathNamespaces: ['/docs'],
         },
         plugins: [
             function (hook, vm) {
@@ -79,7 +79,7 @@
                             .replace('@master', '/blob/master');
                     } else {
                         url =
-                            'https://github.com/qiangmzsx/Software-Engineering-at-Google/blob/main/' +
+                            'https://github.com/Danielxxf/UnityKnowledgeBase/blob/main/' +
                             vm.route.file;
                     }
                     var editHtml = '[:memo: Edit Document](' + url + ')\n';
