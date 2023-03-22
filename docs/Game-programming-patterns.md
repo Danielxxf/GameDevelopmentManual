@@ -1,4 +1,4 @@
-# 游戏设计模式
+# 游戏设计模式（Game Programming Patterns）
 
 ## 游戏设计模式作用
 

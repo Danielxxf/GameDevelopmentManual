@@ -1,1 +1,2 @@
 - [游戏设计模式](docs/Game-programming-patterns-in-unity.md)
+- [游戏渲染](docs/Game-programming-patterns-in-unity.md)
