@@ -1,6 +1,6 @@
-# 五种设计模式的示例代码
+# 五种常见设计模式
 
-## 1. 单例模式（Singleton Pattern）
+## 单例模式（Singleton Pattern）
 
 ```csharp
 public class GameManager : MonoBehaviour
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
 在上述代码中，GameManager是一个游戏管理器类，我们使用单例模式保证整个游戏中只存在一个GameManager实例。在Awake()函数中，我们判断GameManager实例是否为null，如果是，就表示这是第一次实例化GameManager，我们就将实例化后的GameManager设置为instance，并使用DontDestroyOnLoad()函数保证GameManager对象在场景切换时不会被摧毁。如果GameManager实例不为null，就直接销毁它。
 
-## 2. 工厂模式（Factory Pattern）
+## 工厂模式（Factory Pattern）
 
 ```csharp
 public enum EnemyType
@@ -70,7 +70,7 @@ public class EnemyFactory : MonoBehaviour
 
 在上述代码中，EnemyFactory是一个敌人工厂类，它可以使用CreateEnemy()函数创建不同类型的敌人，根据传入的EnemyType参数选择不同的敌人预制体进行实例化。这样，在游戏中，我们只需要调用EnemyFactory的CreateEnemy()函数就可以创建不同类型的敌人了。
 
-## 3. 观察者模式（Observer Pattern）
+## 观察者模式（Observer Pattern）
 
 ```csharp
 public class Player : MonoBehaviour
@@ -107,7 +107,7 @@ public class UIManager : MonoBehaviour
 
 在上述代码中，Player是一个玩家类，它有一个OnPlayerDeath事件，当玩家死亡时，就会触发OnPlayerDeath事件。UIManager是一个UI管理器类，在Start()函数中，它注册了OnPlayerDeath事件的监听，当OnPlayerDeath事件被触发时，就会调用GameOver()函数来显示游戏结束的UI。
 
-## 4. 策略模式（Strategy Pattern）
+## 策略模式（Strategy Pattern）
 
 ```csharp
 public interface IMoveStrategy
@@ -167,7 +167,7 @@ public class MoveController : MonoBehaviour
 }
 ```
 
-## 5. 命令模式（Command Pattern）
+## 命令模式（Command Pattern）
 
 ```csharp
 public interface ICommand
