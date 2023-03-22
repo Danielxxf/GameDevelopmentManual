@@ -1,21 +1,11 @@
 main:
   - title: "Posts"
     url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
   - title: "About"
     url: /about/
 
 unity:
-  - title: Getting Started
+  - title: "游戏设计"
     children:
-      - title: "Quick-Start Guide"
-        url: /unity/quick-start-guide/
-      - title: "Structure"
-        url: /unity/structure/
-      - title: "Installation"
-        url: /unity/installation/
-      - title: "Upgrading"
-        url: /unity/upgrading/
+      - title: "Unity游戏设计模式"
+        url: /game-programming-patterns/

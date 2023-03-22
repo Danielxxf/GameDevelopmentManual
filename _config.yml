@@ -64,7 +64,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: true
       share: true
@@ -77,18 +77,7 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
-      sidebar:
-        nav: "unity"
-  - scope:
-      path: ""
-      type: unity
-    values:
-      layout: single
-      read_time: false
       author_profile: false
-      share: false
-      comments: false
       sidebar:
         nav: "unity"
 
