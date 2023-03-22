@@ -4,7 +4,7 @@
 # Software Engineering at Google <small>中文版</small>
 
 > Lessons Learned from Programming Over Time
-
+![color](#0089A7)
 
 [GitHub](https://github.com/qiangmzsx/Software-Engineering-at-Google)
 [Get Started](#software-engineering-at-google)
