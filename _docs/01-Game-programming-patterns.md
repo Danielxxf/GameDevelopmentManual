@@ -1,3 +1,12 @@
+---
+title: "Quick-Start Guide"
+permalink: /docs/game-programming-patterns/
+excerpt: "How to quickly install and setup Minimal Mistakes for use with GitHub Pages."
+last_modified_at: 2021-06-07T08:48:05-04:00
+redirect_from:
+  - /theme-setup/
+toc: true
+---
 以下是五种设计模式的示例代码：
 
 1. 单例模式（Singleton Pattern）
