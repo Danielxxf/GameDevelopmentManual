@@ -9,3 +9,5 @@ unity:
     children:
       - title: "Unity游戏设计模式"
         url: /game-programming-patterns/
+      - title: "Unity游戏设计模式"
+        url: /
