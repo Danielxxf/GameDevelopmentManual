@@ -1,9 +1,4 @@
----
-title: "Game Programming Patterns"
-permalink: /game-programming-patterns/
-toc: true
----
-以下是五种设计模式的示例代码：
+#五种设计模式的示例代码：
 
 1. 单例模式（Singleton Pattern）
 
