@@ -70,7 +70,7 @@ defaults:
       share: true
       related: true
       sidebar:
-        nav: "docs"
+        nav: "unity"
   # _pages
   - scope:
       path: "_pages"
@@ -79,10 +79,10 @@ defaults:
       layout: single
       author_profile: true
       sidebar:
-        nav: "docs"
+        nav: "unity"
   - scope:
       path: ""
-      type: docs
+      type: unity
     values:
       layout: single
       read_time: false
@@ -90,7 +90,7 @@ defaults:
       share: false
       comments: false
       sidebar:
-        nav: "docs"
+        nav: "unity"
 
 category_archive:
   type: liquid
