@@ -8,7 +8,7 @@ main:
   - title: "About"
     url: /about/
 
-docs:
+unity:
   - title: Getting Started
     children:
       - title: "Quick-Start Guide"
