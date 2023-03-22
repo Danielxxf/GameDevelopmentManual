@@ -1,3 +1,3 @@
-# Unity Knowledge Base
+# Game Development Manual
 
-[**https://danielxxf.github.io/UnityKnowledgeBase/#/**](https://danielxxf.github.io/UnityKnowledgeBase/#/)
+[**https://danielxxf.github.io/GameDevelopmentManual/#/**](https://danielxxf.github.io/GameDevelopmentManual/#/)
