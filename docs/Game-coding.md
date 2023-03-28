@@ -18,10 +18,10 @@
 ```csharp
 static void bubbleSort(int[] nums){
     int t;
-    bool sorted;
+    bool sorted = false;
     for(int i = 0; i < nums.Length - 1; i++){
         sorted = true;
-        for(int j = 0; j < num.Length - 1; j++){
+        for(int j = 0; j < num.Length - 1 - i; j++){
             if(nums[j] > nums[j + 1]){
                 int t = nums[j];
                 nums[j] = nums[j + 1];
@@ -32,6 +32,33 @@ static void bubbleSort(int[] nums){
         if(sorted) return;
     }
 }
+```
+```c++
+void bubbleSort(int arr[], int n) {
+    // 标记变量，表示本轮排序是否有交换操作
+    bool sorted = false;
+    for (int i = 0; i < n - 1 && !sorted; i++) {
+        sorted = true;
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // 交换元素
+                swap(arr[j], arr[j + 1]);
+                sorted = false;
+            }
+        }
+    }
+}
+```
+```lua
+local function bubbleSort(arr)
+    for i = 1, #arr, 1 do
+        for j = 1, #arr - i, 1 do
+            if arr[j] > arr[j+1] then
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+            end
+        end
+    end
+end
 ```
 #### 插入排序 O(n^2)
 ```csharp
