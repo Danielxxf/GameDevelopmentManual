@@ -33,7 +33,7 @@ static void bubbleSort(int[] nums){
     }
 }
 ```
-```c++
+```cpp
 void bubbleSort(int arr[], int n) {
     // 标记变量，表示本轮排序是否有交换操作
     bool sorted = false;
