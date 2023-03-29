@@ -67,6 +67,7 @@ end
 ```csharp
 ```
 #### 快速排序 O(nlogn)
+##### 递归版本
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -189,6 +190,59 @@ void quickSortRecursive(vector<int>& nums, int left, int right) {
 void quickSort(vector<int>& nums) {
     if (nums.empty()) return;
     quickSortRecursive(nums, 0, nums.size() - 1);
+}
+
+// 测试代码
+int main() {
+    vector<int> nums = {3, 2, 5, 1, 4};
+    quickSort(nums);
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    cout << endl; // 输出：1 2 3 4 5
+    return 0;
+}
+```
+##### 非递归
+快速排序的非递归版本是通过使用栈或队列来模拟递归过程实现的。与递归版本相比，它可以节省函数调用和维护函数调用栈所需的额外空间，因而在某些场景下可能具有更好的性能。
+在下面的代码中，我们使用了一个 stack 类型的栈来模拟递归调用。首先将整个数组的下标范围 {0, nums.size()-1} 压入栈中，然后不断从栈顶取出一个待排序区间，执行双向扫描法进行划分，并将划分出的左右子区间（如果有）压入栈中，直到栈为空为止。
+与递归版本相比，非递归版本不需要保存过多的函数调用栈信息，因此可以节省一定的空间。此外，由于递归的本质是函数调用，每次函数调用都会涉及到一定的时间开销，因此非递归版本可能具有更好的时间性能。但是，非递归版本的代码可能更加复杂，可读性和可维护性也可能较差。因此，在实际应用中需要根据具体场景选择合适的实现方式。
+```cpp
+#include <iostream>
+#include <vector>
+#include <stack>
+
+using namespace std;
+
+// 双向扫描法将数组划分成小于等于枢轴元素和大于枢轴元素两部分
+int partition(vector<int>& nums, int left, int right) {
+    int pivot = nums[(left + right) / 2]; // 选择中间元素作为枢轴元素
+    while (left <= right) {
+        while (nums[left] < pivot) left++;
+        while (nums[right] > pivot) right--;
+        if (left <= right) { // 左右指针未交错时交换元素
+            swap(nums[left], nums[right]);
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
+
+// 快速排序非递归函数
+void quickSort(vector<int>& nums) {
+    if (nums.empty()) return;
+    stack<pair<int, int>> stk; // 使用栈模拟递归调用
+    stk.push({0, nums.size() - 1});
+    while (!stk.empty()) {
+        int left = stk.top().first;
+        int right = stk.top().second;
+        stk.pop();
+        if (left >= right) continue;
+        int index = partition(nums, left, right); // 双向扫描法将数组划分
+        stk.push({left, index - 1}); // 将左半部分压入栈中
+        stk.push({index, right}); // 将右半部分压入栈中
+    }
 }
 
 // 测试代码
