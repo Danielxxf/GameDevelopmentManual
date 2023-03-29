@@ -23,7 +23,7 @@ static void bubbleSort(int[] nums){
         sorted = true;
         for(int j = 0; j < num.Length - 1 - i; j++){
             if(nums[j] > nums[j + 1]){
-                int t = nums[j];
+                t = nums[j];
                 nums[j] = nums[j + 1];
                 nums[j + 1] = t;
                 sorted = false;
@@ -67,7 +67,71 @@ end
 ```csharp
 ```
 #### 快速排序 O(nlogn)
-```csharp
+```c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 双向扫描法将数组划分成小于等于枢轴元素和大于枢轴元素两部分
+int partition(vector<int>& nums, int left, int right) {
+    int pivot = nums[(left + right) / 2]; // 选择中间元素作为枢轴元素
+    while (left <= right) {
+        while (nums[left] < pivot) left++;
+        while (nums[right] > pivot) right--;
+        if (left <= right) { // 左右指针未交错时交换元素
+            swap(nums[left], nums[right]);
+            left++;
+            right--;
+        }
+    }
+    return left;
+}
+
+// 插入排序，用于对小规模子数组进行排序
+void insertionSort(vector<int>& nums, int left, int right) {
+    for (int i = left + 1; i <= right; i++) {
+        int temp = nums[i];
+        int j = i - 1;
+        while (j >= left && nums[j] > temp) {
+            nums[j + 1] = nums[j];
+            j--;
+        }
+        nums[j + 1] = temp;
+    }
+}
+
+// 快速排序递归函数
+void quickSort(vector<int>& nums, int left, int right) {
+    if (right - left + 1 <= 10) { // 对小规模子数组采用插入排序
+        insertionSort(nums, left, right);
+        return;
+    }
+    int index = partition(nums, left, right); // 双向扫描法将数组划分
+    if (left < index - 1) {
+        quickSort(nums, left, index - 1); // 递归排序左半部分
+    }
+    if (index < right) {
+        quickSort(nums, index, right); // 递归排序右半部分
+    }
+}
+
+// 快速排序函数
+void quickSort(vector<int>& nums) {
+    if (nums.empty()) return;
+    quickSort(nums, 0, nums.size() - 1);
+}
+
+// 测试代码
+int main() {
+    vector<int> nums = {3, 2, 5, 1, 4};
+    quickSort(nums);
+    for (int num : nums) {
+        cout << num << " ";
+    }
+    cout << endl; // 输出：1 2 3 4 5
+    return 0;
+}
 ```
 #### 归并排序 O(nlogn)
 ```csharp
@@ -85,7 +149,7 @@ end
 ```csharp
 ```
 
-## 游戏算法
+## 游戏相关算法
 ### 寻路
 ### 光栅化
 ### 人工智能
