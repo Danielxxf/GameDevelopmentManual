@@ -67,7 +67,76 @@ end
 ```csharp
 ```
 #### 快速排序 O(nlogn)
-```c++
+```csharp
+using System;
+using System.Collections.Generic;
+
+public static class QuickSort {
+    // 双向扫描法将数组划分成小于等于枢轴元素和大于枢轴元素两部分
+    private static int Partition(List<int> nums, int left, int right) {
+        int pivot = nums[(left + right) / 2]; // 选择中间元素作为枢轴元素
+        while (left <= right) {
+            while (nums[left] < pivot) left++;
+            while (nums[right] > pivot) right--;
+            if (left <= right) { // 左右指针未交错时交换元素
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return left;
+    }
+
+    // 插入排序，用于对小规模子数组进行排序
+    private static void InsertionSort(List<int> nums, int left, int right) {
+        for (int i = left + 1; i <= right; i++) {
+            int temp = nums[i];
+            int j = i - 1;
+            while (j >= left && nums[j] > temp) {
+                nums[j + 1] = nums[j];
+                j--;
+            }
+            nums[j + 1] = temp;
+        }
+    }
+
+    // 快速排序递归函数
+    private static void QuickSortRecursive(List<int> nums, int left, int right) {
+        if (right - left + 1 <= 10) { // 对小规模子数组采用插入排序
+            InsertionSort(nums, left, right);
+            return;
+        }
+        int index = Partition(nums, left, right); // 双向扫描法将数组划分
+        if (left < index - 1) {
+            QuickSortRecursive(nums, left, index - 1); // 递归排序左半部分
+        }
+        if (index < right) {
+            QuickSortRecursive(nums, index, right); // 递归排序右半部分
+        }
+    }
+
+    // 快速排序函数
+    public static void QuickSort(List<int> nums) {
+        if (nums == null || nums.Count == 0) return;
+        QuickSortRecursive(nums, 0, nums.Count - 1);
+    }
+}
+
+// 测试代码
+public static class Test {
+    public static void Main() {
+        List<int> nums = new List<int> {3, 2, 5, 1, 4};
+        QuickSort.QuickSort(nums);
+        foreach (int num in nums) {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine(); // 输出：1 2 3 4 5
+    }
+}
+```
+```cpp
 #include <iostream>
 #include <vector>
 
@@ -102,24 +171,24 @@ void insertionSort(vector<int>& nums, int left, int right) {
 }
 
 // 快速排序递归函数
-void quickSort(vector<int>& nums, int left, int right) {
+void quickSortRecursive(vector<int>& nums, int left, int right) {
     if (right - left + 1 <= 10) { // 对小规模子数组采用插入排序
-        insertionSort(nums, left, right);
+        insertionSortRecursive(nums, left, right);
         return;
     }
     int index = partition(nums, left, right); // 双向扫描法将数组划分
     if (left < index - 1) {
-        quickSort(nums, left, index - 1); // 递归排序左半部分
+        quickSortRecursive(nums, left, index - 1); // 递归排序左半部分
     }
     if (index < right) {
-        quickSort(nums, index, right); // 递归排序右半部分
+        quickSortRecursive(nums, index, right); // 递归排序右半部分
     }
 }
 
 // 快速排序函数
 void quickSort(vector<int>& nums) {
     if (nums.empty()) return;
-    quickSort(nums, 0, nums.size() - 1);
+    quickSortRecursive(nums, 0, nums.size() - 1);
 }
 
 // 测试代码
